@@ -1,0 +1,358 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+
+}
+
+body, html {
+  margin:0;
+  padding:0;
+  height:100%;
+
+}
+
+
+/**
+ * Basic styling
+ */
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption {
+    padding: .5em 0;
+    font-style: italic;
+    color: lighter;
+    color: $grey-color;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacing-unit;
+  list-style: none;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+  color: $text-color;
+  text-decoration: none;
+
+
+  &:visited {
+    color: darken($text-color, 15%);
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: none;
+
+
+  }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+ 
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/**
+ * Icons
+ */
+.icon > svg {
+  display: inline-block;
+  vertical-align: middle;
+
+  path {
+    fill: $grey-color;
+  }
+}
+
+/** 
+* Animation 
+*/
+
+@keyframes fadeIn {
+
+  0% {
+    opacity: 0; 
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+
+}
+
+@keyframes fadeInUp {
+
+  0% {
+    opacity: 0; 
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+
+
+}
+
+@keyframes fadeInRight {
+
+  0% {
+    opacity: 0; 
+    transform: translate3d(100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    z-index: 99;
+
+  }
+
+
+}
+
+@keyframes fadeInLeft {
+
+  0% {
+    opacity: 0; 
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+    z-index: 99;
+
+  }
+
+
+}
+
+@keyframes slideleft {
+
+  0% {
+    opacity: 1; 
+    transform: none;
+    z-index: 99;
+
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+
+  }
+
+
+}
+
+.m-scene {
+
+  .scene_element {
+    animation-duration: 3s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: both;
+  }
+
+  .fadein {
+    animation-name: fadeIn ease-in 1;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+
+    opacity: 0;
+    opacity: 1 \9;
+
+     -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+
+
+
+  }
+
+  .slide-out {
+    animation-name: slideleft;
+  }
+
+  .fadeinright {
+    animation-name: fadeInRight;
+    visibility: visible;
+    overflow-y: scroll;
+  }
+
+  .fadeinleft {
+    animation-name: fadeInLeft;
+  }
+
+  .fadeinup {
+    animation-name: fadeInUp;
+  }
+
+  &.is-exiting {
+    .scene_element {
+      animation-direction: alternate-reverse;
+    }
+  }
+}
+
+.announcement {
+  font-family: $base-font-family;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #F74DEB;
+  opacity: .5;
+
+  a {
+    color: #54EA66;
+  }
+
+}
+
+
+.section {
+  position: relative;
+
+}
+
+

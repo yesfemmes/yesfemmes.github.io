@@ -1,0 +1,171 @@
+
+<div class="branding">
+ {% if page.issue == "fandom" %}
+<div class="issue-label">Issue 2</div>
+        {% endif %}
+
+<div class="logo"><h1><a href="/">Yes Femmes</a></h1></div>
+ {% if page.issue == "fandom" %}
+
+<div class="issue-no"><p>Fandom </p></div>
+        {% endif %}
+
+</div>
+<div class="main-menu side-nav">
+<nav>
+  <div class="menu-item-wrapper cv">
+  <h1><a href="{{ site.baseurl }}/">Home</a></h1>
+  <h1><a href="{{ site.baseurl }}/issues">Issues</a></h1>
+  <h1><a href="{{ site.baseurl }}/about">About</a></h1>
+</div>
+</nav>
+</div>
+
+<div class="browse-menu side-nav">
+    <div class="browse-side-wrapper"></div>
+
+<nav>
+
+
+
+  <div class="browse-wrapper">
+
+        <p class="close-btn"><a href="#">close</a></p>
+        <div class="current-issue">
+      <h1>Fandom</h1>
+    <div class="filter-buttons">
+    <button class="active btn" data-filter="author">By Author</button>
+<button class="btn" data-filter="title">By Title</button>
+</div>
+<div class="spacer"></div>
+<div id="parent" class="lists-wrapper">
+  <div class="box author active-section">
+
+    <div class="authors-wrapper">
+ {% assign fandom-titles = (site.issues | where: "issue", "fandom" | sort: 'lastname') %}
+  <ul>
+
+{% for story in fandom-titles %}
+    
+    <li><p><a href="{{ site.baseurl }}{{ story.url }}">{{story.firstname}} {{ story.lastname }}</a></p></li>
+   
+{% endfor %}
+  </ul>
+
+</div>
+   
+
+  </div>
+  <div class="box title">
+    <div class="titles-wrapper">
+ {% assign fandom-titles = (site.issues | where: "issue", "fandom") %}
+  <ul>
+
+{% for story in fandom-titles %}
+    
+    <li><p><a href="{{ site.baseurl }}{{ story.url }}">{{story.subtitle}} {{ story.title }}</a></p></li>
+   
+{% endfor %}
+  </ul>
+
+</div>
+  </div>
+ 
+ 
+</div><!-- /parent -->
+
+</div><!-- / current -->
+
+   <div class="past-issue-one">
+
+     <h1><a href="{{site.baseurl }}/issue-first">no. 1: First</a></h1>
+    
+     
+  </div><!-- / past-issue-one -->
+
+</div><!-- / browse-wrapper -->
+
+</nav>
+</div><!-- / browse-menu -->
+
+
+
+<div style="display: none;" class="letter-wrapper fadein">
+ <div classs="logo"> 
+<a href="#issue-section">
+<div class="letter float y">Y</div>
+  <div class="letter float e">e</div>
+  <div class="letter float s">s</div>
+  <br>
+  <div class="letter float f">F</div>
+  <div class="letter float ee">e</div>
+  <div class="letter float m">m</div>
+  <div class="letter float mm">m</div>
+  <div class="letter float eee">e</div>
+  <div class="letter float ss">s</div>
+</a>
+</div>
+</div><!-- End letter-wrapper -->
+<!-- <div class="side-nav about-menu"><a href="#">About</a></div>
+
+<div class="side-nav index-menu"><a href="#issue-first">Index</a></div>-->
+
+<!-- Put this only on first issue content-->
+
+
+{% if page.layout == 'story-first' %}
+<div class="menu-index">
+<div class="index">
+{% capture stories %}{{ page.collection }}{% endcapture %}
+
+{% if page.collection %}
+  {% assign document = site.issues | where: "issue", "first" | sort: 'lastname' %%}
+{% endif %}
+
+{% for links in document %}
+  {% if links.title == page.title %}
+    {% unless forloop.first %}
+      {% assign prevurl = prev.url %}
+      {% assign prevtitle = prev.title %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign nexttitle = next.title %}
+      {% assign nexturl = next.url %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = links %}
+{% endfor %}
+
+
+ 
+
+{% if prevurl %}<p class="title-prev"><a href="{{ site.baseurl }}{{ prevurl }}"> << <span> {{ prevtitle l}}</span></a></p>{% endif %}
+<p class="contents"><a href="{{site.baseurl }}/issue-first">Contents</a></p>
+{% if nexturl %}<p class="title-next"><a href="{{ site.baseurl }}{{ nexturl }}"><span>{{ nexttitle }} </span> >></a></p>{% endif %}
+
+<script>
+/* post pagination keyboard shortcuts */
+document.body.onkeyup = function(e){
+  if (e.keyCode == '37') { window.location = '{{ prevurl }}'; } // left arrow key
+  if (e.keyCode == '39') { window.location = '{{ nexturl }}'; } // right arrow key
+};
+</script></div>
+</div>
+{% endif %}
+
+{% if page.layout == 'story-fandom' %}
+
+            {% include _fandom/story-nav.html %}
+
+
+{% endif%}
+
+<script>
+/* post pagination keyboard shortcuts */
+document.body.onkeyup = function(e){
+  if (e.keyCode == '37') { window.location = '{{ prevurl }}'; } // left arrow key
+  if (e.keyCode == '39') { window.location = '{{ nexturl }}'; } // right arrow key
+};
+</script>
+

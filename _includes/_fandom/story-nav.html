@@ -1,0 +1,37 @@
+<div class="menu-index">
+<div class="index">
+{% capture stories %}{{ page.collection }}{% endcapture %}
+
+{% if page.collection %}
+  {% assign document = site.issues | where: "issue", "fandom" | sort: 'lastname' %%}
+{% endif %}
+
+{% for links in document %}
+  {% if links.title == page.title %}
+    {% unless forloop.first %}
+      {% assign prevurl = prev.url %}
+      {% assign prevtitle = prev.title %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign nexttitle = next.title %}
+      {% assign nexturl = next.url %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = links %}
+{% endfor %}
+
+
+ 
+
+{% if prevurl %}<p><a href="{{ site.baseurl }}{{ prevurl }}">&xlarr;  </a></p>{% endif %}
+{% if nexturl %}<p><a href="{{ site.baseurl }}{{ nexturl }}">&xrarr;</a></p>{% endif %}
+
+<script>
+/* post pagination keyboard shortcuts */
+document.body.onkeyup = function(e){
+  if (e.keyCode == '37') { window.location = '{{ prevurl }}'; } // left arrow key
+  if (e.keyCode == '39') { window.location = '{{ nexturl }}'; } // right arrow key
+};
+</script></div>
+</div>

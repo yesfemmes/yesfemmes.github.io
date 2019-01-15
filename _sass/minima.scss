@@ -1,0 +1,61 @@
+// Define defaults for each variable.
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i');
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
+
+
+
+$story-font-family: 'callunaregular', sans-serif;
+
+$base-font-family: 'Montserrat', sans-serif;
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$spacing-unit:     30px !default;
+
+$text-color:       #111 !default;
+$background-color: #fdfdfd !default;
+$brand-color:      #2a7ae2 !default;
+
+$purple: #5900ff;
+$green: #54EA66;
+$pink: #F74DEB;
+
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+// Width of the content area
+$content-width:    800px !default;
+
+
+$on-tablet:		   768px  !default;
+$on-laptop:        1024px !default;
+$on-largescreen:   1300px !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+// Import partials.
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/fandom",
+  "minima/first",
+  "minima/syntax-highlighting"
+;

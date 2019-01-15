@@ -1,0 +1,297 @@
+
+@import url('https://fonts.googleapis.com/css?family=Pirata+One');
+
+
+
+
+body.issue-fandom {
+
+  /* Reset 100% height on parent containers */
+  .container, .page-content, .wrapper, .page-wrapper {
+    height: auto;
+  }
+
+  .branding {
+    width: 90%;
+    left: 50%;
+    margin-left: -44.5%;
+    justify-content: space-between;
+
+  }
+
+  body.issue-fandom .logo {
+  display: none;
+  }
+
+
+
+
+  .logo a {
+    color: #0affa8;
+
+  }
+
+  .menu-index {
+  box-shadow: none;
+  }
+
+  .index {
+  width: 80%;
+  justify-content: space-between;
+
+    p {
+     padding: 0;
+     margin: 0;
+     font-size: 2em;
+
+    a {
+    color: #8553FB;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    }
+    }
+  }
+
+  }
+
+  .current-issue h1 {
+    text-transform: uppercase;
+    color: #8553FB;
+    font-weight: 600;
+    letter-spacing: .06em;
+    font-size: 2em;
+    font-family: 'Fruktur', cursive;
+
+  }
+
+  .lists-wrapper {
+    padding-top: 1.5em;
+
+
+  }
+
+  .titles-wrapper, .authors-wrapper {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+
+.fhvh {
+  height: 100vh;
+}
+
+.issue-label, .issue-no {
+
+  /*font-family: 'Pirata One', cursive; */
+  font-family: 'Fruktur', cursive;
+  /*color: #0affa8;*/
+  color: #8553FB;
+  text-transform: lowercase;
+  letter-spacing: .2em;
+  font-size: 1.2em;
+  text-decoration-line: underline;
+  text-decoration-style: wavy; 
+
+
+  }
+
+  @include media-query($on-tablet) {
+
+  .branding {
+  width: 100%;
+  left: 0;
+  margin-left: 0;
+  justify-content: space-around;
+  }
+
+  .logo {
+  display: block;
+  }
+
+  /*
+  .menu-index {
+  background: none;
+  }
+  */
+
+  }
+
+
+.fandom-page-wrapper {
+
+  .story-wrapper {
+    background: none;
+    height: auto;
+  }
+
+  .section-intro {
+  padding: 5em 1em;
+  min-height: 90vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    img {
+   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: .65
+  }
+}
+
+
+.inner-section-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.title-info {
+    padding-top: 5em;
+    text-align: center;
+}
+
+  .sub-title {
+    text-align: center;
+    color: #0affa8;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .story-title {
+    text-align: center;
+    font-size: 8vw; 
+    color: #0affa8;
+     webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: unset;
+  }
+
+  .author-title {
+    /*font-family: 'Inconsolata', monospace;*/
+ 
+  }
+
+  
+
+  .text-wrapper {
+    padding: 2em .5em;
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+  .video-wrapper {
+    padding: 0;
+    border: 5px solid #0affa8;
+
+
+  }
+   
+
+    .plyr__play-large svg {
+     fill: #0affa8;
+    }
+
+    .plyr__play-large {
+    background: none;
+    border: 0;
+    }
+
+    .plyr__progress--played, .plyr__volume--display {
+    color: #0affa8;
+    }
+
+.section-img {
+    background: #8553FB;
+    width: 95%;
+    height: 78vh;
+    box-shadow: 0 0 2em #0affa8;
+    z-index: 0;
+    margin: 0 auto;
+}
+  .section-footnotes {
+    border-top: 1px solid #0affa8;
+    padding-top: 1em;
+  }
+
+  .story-bio {
+    p {
+    font-size: smaller;
+    }
+  }
+
+    @include media-query($on-laptop) {
+
+.inner-section-wrapper {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.story-title {
+  font-size: 9vw;
+}
+
+.text-wrapper {
+  padding: 2em 1.3em;
+}
+
+.section-intro {
+  
+  padding: 3em;
+}
+
+.section-img {
+  width: 85%;
+}
+
+/*
+.title-info {
+  min-height: 80vh;
+}
+*/
+
+ .story-title {
+    
+    font-size: 4vw;
+    padding: .5em;
+    line-height: 1.3;    
+  }
+    .sub-title {
+    font-size: 2.5vw;
+
+    }
+
+}
+
+.story-heading {
+  font-family: 'Pirata One', cursive;
+  color: #8553FB;
+  font-size: 4rem;
+
+}
+
+blockquote {
+  border-left: 4px solid #0affa8;
+  color: #ffffff;
+  font-size: 1.1em;
+  padding: 1em;
+  background: linear-gradient(to bottom, rgba(133,83,251,1) 0%,rgba(174,144,249,1) 68%);
+}
+
+.notes .text-wrapper p {
+  font-size: smaller;
+}
+
+.gray-border {
+  border-top: 1px solid #eee;
+}
+
+    @include media-query($on-laptop) {
+blockquote {
+  padding: 2em;
+}
+
+}
+
+
+}
